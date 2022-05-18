@@ -6,7 +6,12 @@ const userRoutes = () => {
 
     const controller = userController();
 
-    router.route('/register').post(controller.userRegisterController);
+    router.get('/', controller.userGetController);
+
+    router.get('/:id', controller.userFindByIdController);
+
+    router.post('/', controller.userRegisterController);
+    // router.route('/register').post(controller.userRegisterController);
 
     return router;
 };
