@@ -1,5 +1,5 @@
-# NodeJs API-RESTful TDD
-Realizada con fines de prueba de implementación.
+# NodeJs API-RESTful TDD - Clean Architecture
+Aplicación de prestamos realizada con fines de prueba de implementación de TDD y de Arquitectura Limpia.
 ---
 
   
