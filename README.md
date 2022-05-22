@@ -5,6 +5,7 @@ Aplicación de prestamos realizada con fines de prueba de implementación de TDD
   
 #### Se inicia con...
 ```bash
+  $ npm install
   $ npm start
   ```
   
