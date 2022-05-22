@@ -1,4 +1,4 @@
-const userModel = require('../../models/user');
+const userModel = require('../../../entities/user');
 const createError = require('http-errors');
 
 module.exports = () => {

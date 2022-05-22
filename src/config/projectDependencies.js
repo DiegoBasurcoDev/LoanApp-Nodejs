@@ -1,9 +1,9 @@
-const MongoDBDatabaseService = require('../contracts/MongoDBDatabaseService');
-const UserRepository = require('../contracts/UserRepository');
+const MongoDBDatabaseService = require('../application/contracts/MongoDBDatabaseService');
+const InMemoryDatabaseServices = require('../frameworks/persistance/InMemoryDatabaseServices');
 
 module.exports = (() => {
     return {
         MongoDBDatabaseService: new MongoDBDatabaseService(),
-        UserRepository: new UserRepository()
+        DatabaseService: new InMemoryDatabaseServices()
     };
 })();

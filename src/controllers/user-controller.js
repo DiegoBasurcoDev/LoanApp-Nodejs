@@ -1,10 +1,10 @@
-const RegisterUser = require('../use-cases/user/RegisterUser');
-const GetUser = require('../use-cases/user/GetUser');
-const FindById = require('../use-cases/user/FindById');
+const RegisterUser = require('../application/use-cases/user/RegisterUser');
+const GetUser = require('../application/use-cases/user/GetUser');
+const FindById = require('../application/use-cases/user/FindById');
 const createError = require('http-errors');
 
 module.exports = (dependencies) => {
-    this.userRepository = dependencies.UserRepository;
+    const { userRepository } = dependencies.DatabaseService;
 
     const userRegisterController = async (req, res, next) => {
         const registerUser = await RegisterUser();
@@ -19,9 +19,9 @@ module.exports = (dependencies) => {
     };
 
     const userGetController = async (req, res, next) => {
-        const getUser = await GetUser(this.userRepository);
+        const getUserQuery = await GetUser(userRepository);
 
-        getUser.Execute().then((users) => {
+        getUserQuery.Execute().then((users) => {
             res.json(users);
         }, (err) => {
             next(err);

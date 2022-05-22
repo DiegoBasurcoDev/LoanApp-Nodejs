@@ -11,15 +11,22 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "app-root-path": "^3.0.0",
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
+    "elasticsearch": "^16.7.3",
     "express": "^4.18.1",
     "http-errors": "^2.0.0",
-    "mongoose": "^6.3.3"
+    "joi": "^17.6.0",
+    "mongoose": "^6.3.3",
+    "winston": "^3.7.2"
   },
   "devDependencies": {
     "@types/jest": "^27.5.1",
+    "eslint": "^8.16.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
     "jest": "^28.1.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.16",

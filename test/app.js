@@ -1,5 +1,5 @@
 const express = require('express');
-const routes = require('../src/routes/index')
+const routes = require('../src/frameworks/routes/index')
 const projectDependencies = require('../src/config/projectDependencies');
 
 const app = express();
