@@ -1,5 +1,6 @@
 const express = require('express');
 const routes = require('../src/routes/index')
+const projectDependencies = require('../src/config/projectDependencies');
 
 const app = express();
 
@@ -7,6 +8,6 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/api', routes());
+app.use('/api', routes(projectDependencies));
 
 module.exports = app;

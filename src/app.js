@@ -13,7 +13,7 @@ projectDependencies.MongoDBDatabaseService.getConnection().then(() =>{
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
 
-    app.use('/api', routes());
+    app.use('/api', routes(projectDependencies));
 
     app.listen(port, () => console.log('http://localhost:' + port));
 }, (err) => {

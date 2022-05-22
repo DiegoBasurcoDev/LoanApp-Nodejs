@@ -1,9 +1,7 @@
-const userModel = require('../../models/user');
-
-module.exports = () => {
+module.exports = (dependencies) => {
     async function Execute() {
         //return await userModel.find();
-        return [];
+        return dependencies.getAll();
     }
 
     return {

@@ -3,7 +3,9 @@ const GetUser = require('../use-cases/user/GetUser');
 const FindById = require('../use-cases/user/FindById');
 const createError = require('http-errors');
 
-module.exports = () => {
+module.exports = (dependencies) => {
+    this.userRepository = dependencies.UserRepository;
+
     const userRegisterController = async (req, res, next) => {
         const registerUser = await RegisterUser();
         
@@ -17,7 +19,7 @@ module.exports = () => {
     };
 
     const userGetController = async (req, res, next) => {
-        const getUser = await GetUser();
+        const getUser = await GetUser(this.userRepository);
 
         getUser.Execute().then((users) => {
             res.json(users);

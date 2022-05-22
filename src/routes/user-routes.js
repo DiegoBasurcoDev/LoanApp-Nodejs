@@ -1,10 +1,10 @@
 const express = require('express');
 const userController = require('../controllers/user-controllers');
 
-const userRoutes = () => {
+const userRoutes = (dependencies) => {
     const router = express.Router();
 
-    const controller = userController();
+    const controller = userController(dependencies);
 
     router.get('/', controller.userGetController);
 
