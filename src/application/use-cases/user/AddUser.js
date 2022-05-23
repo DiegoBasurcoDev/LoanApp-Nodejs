@@ -1,10 +1,7 @@
-const userModel = require('../../../entities/user');
 const createError = require('http-errors');
 
-module.exports = () => {
+module.exports = (UserRepository) => {
     async function Execute(req, res, next) {
-        //const newUser = new userModel(res);
-        //await newUser.save();
 
         if(typeof req.name !== 'string') {
             return next(createError(422, 'Validation error'));
@@ -15,10 +12,16 @@ module.exports = () => {
             lastname: req.lastname,
             email: req.email,
             username: req.username,
-            password: req.password
+            password: req.password,
+            status: 1
         };
-        //return await userModel.find();
-        return res.status(201).json(newUser);
+
+        try{
+            const result = UserRepository.add(newUser);        
+            return res.status(201).json(result);
+        }catch(error){
+            return res.status(422).json({message: "No se pudo registrar al usuario"});
+        }
     }
 
     return {

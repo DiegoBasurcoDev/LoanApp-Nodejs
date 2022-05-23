@@ -11,7 +11,16 @@ describe('API Users', () => {
             .expect(200)
             .then((response) => {
                 expect(response.body).toEqual(
-                    expect.arrayContaining([])
+                    expect.arrayContaining([
+                        expect.objectContaining({
+                            id: expect.any(Number),
+                            name: expect.any(String),
+                            lastname: expect.any(String),
+                            email: expect.any(String),
+                            username: expect.any(String),
+                            password: expect.any(String)
+                        })
+                    ])
                 )
             });
     });
@@ -25,7 +34,11 @@ describe('API Users', () => {
                 expect(response.body).toEqual(
                     expect.objectContaining({
                         id: expect.any(Number),
-                        name: expect.any(String)
+                        name: expect.any(String),
+                        lastname: expect.any(String),
+                        email: expect.any(String),
+                        username: expect.any(String),
+                        password: expect.any(String)
                     })
                 )
             });
