@@ -16,7 +16,8 @@ module.exports = (UserRepository, AuthRepository) => {
             return next(createError(404, "The email or password dosen't exists"));
         }
 
-        const token = AuthRepository.generateToken(params);
+        delete result.password;
+        const token = AuthRepository.generateToken(result);
    
         return res.status(200).json({token: token});
     }

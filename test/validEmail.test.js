@@ -21,14 +21,8 @@ describe('Email validation', () => {
         expect(result).toBe(false);
     });
     
-    it('email with .c -> false', () => {
-        const result = validEmail.isValidEmail('dbasurco@gmail.c');
-        expect(result).toBe(false);
-    });
-    
     it('email with .co -> false', () => {
         const result = validEmail.isValidEmail('dbasurco@gmail.co');
         expect(result).toBe(true);
     });
 });
-
