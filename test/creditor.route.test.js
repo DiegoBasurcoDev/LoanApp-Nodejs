@@ -3,10 +3,10 @@ const app = require('./app');
 
 jest.setTimeout(10000);
 
-describe('API User', () => {
-    it('GET api/user -> Array', async () => {
+describe('API Creditor', () => {
+    it('GET api/creditor -> Array', async () => {
         return await request(app)
-            .get('/api/user')
+            .get('/api/creditor')
             .expect('Content-Type', /json/)
             .expect(200)
             .then((response) => {
@@ -16,18 +16,17 @@ describe('API User', () => {
                             id: expect.any(Number),
                             name: expect.any(String),
                             lastname: expect.any(String),
-                            email: expect.any(String),
-                            username: expect.any(String),
-                            password: expect.any(String)
+                            status: expect.any(Number),
+                            idUser: expect.any(Number)
                         })
                     ])
                 )
             });
     });
 
-    it('GET api/user/1 -> specific user by ID', async () => {
+    it('GET api/creditor/1 -> specific user by ID', async () => {
         return await request(app)
-            .get('/api/user/1')
+            .get('/api/creditor/1')
             .expect('Content-Type', /json/)
             .expect(201)
             .then((response) => {
@@ -36,54 +35,50 @@ describe('API User', () => {
                         id: expect.any(Number),
                         name: expect.any(String),
                         lastname: expect.any(String),
-                        email: expect.any(String),
-                        username: expect.any(String),
-                        password: expect.any(String)
+                        status: expect.any(Number),
+                        idUser: expect.any(Number)
                     })
                 )
             });
     });
 
-    it('GET api/user/9999 -> 404 if not found', async () => {
+    it('GET api/creditor/9999 -> 404 if not found', async () => {
         return await request(app)
-            .get('/api/user/9999')
+            .get('/api/creditor/9999')
             .expect(404);
     });
 
-    it('POST api/user -> create todo', () => {
+    it('POST api/creditor -> create todo', () => {
         const body = {
-            name: "diego",
-            lastname: "basurco",
-            email: "diego.basurco@gmail.com",
-            username: "dbasurco",
-            password: "123456"
+            name: "liliana",
+            lastname: "reyes",
+            status: 1,
+            idUser: 1
         };
 
-        return request(app).post('/api/user')
+        return request(app).post('/api/creditor')
             .send(body).expect('Content-Type', /json/).expect(201)
             .then((response) => {
                 expect(response.body).toEqual(
                     expect.objectContaining({
                             name: expect.any(String),
                             lastname: expect.any(String),
-                            email: expect.any(String),
-                            username: expect.any(String),
-                            password: expect.any(String)
+                            status: expect.any(Number),
+                            idUser: expect.any(Number)
                         })
                 )
             });
     });
 
-    it('POST api/user -> validate body', () => {
+    it('POST api/creditor -> validate body', () => {
         const body = {
             name: 123,
-            lastname: "basurco",
-            email: "diego.basurco@gmail.com",
-            username: "dbasurco",
-            password: "123456"
+            lastname: "reyes",
+            status: 1,
+            idUser: 1
         };
 
-        return request(app).post('/api/user')
+        return request(app).post('/api/creditor')
         .send(body).expect(422);
     });
 });

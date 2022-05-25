@@ -4,7 +4,7 @@ const creditorSchema = new Schema({
     name: String,
     lastname: String,
 	status: Number,
-    idUser: String
+    idUser: Number
 },{
     timestamps: true,
     versionKey: false
