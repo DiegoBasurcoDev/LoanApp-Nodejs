@@ -48,7 +48,7 @@ describe('API Creditor', () => {
             .expect(404);
     });
 
-    it('POST api/creditor -> create todo', () => {
+    it('POST api/creditor -> create todo', async () => {
         const body = {
             name: "liliana",
             lastname: "reyes",
@@ -56,7 +56,7 @@ describe('API Creditor', () => {
             idUser: 1
         };
 
-        return request(app).post('/api/creditor')
+        return await request(app).post('/api/creditor')
             .send(body).expect('Content-Type', /json/).expect(201)
             .then((response) => {
                 expect(response.body).toEqual(
@@ -70,7 +70,7 @@ describe('API Creditor', () => {
             });
     });
 
-    it('POST api/creditor -> validate body', () => {
+    it('POST api/creditor -> validate body', async () => {
         const body = {
             name: 123,
             lastname: "reyes",
@@ -78,7 +78,7 @@ describe('API Creditor', () => {
             idUser: 1
         };
 
-        return request(app).post('/api/creditor')
+        return await request(app).post('/api/creditor')
         .send(body).expect(422);
     });
 });
