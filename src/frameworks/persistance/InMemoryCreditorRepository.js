@@ -7,9 +7,9 @@ module.exports = class InMemoryUserRepository extends CreditorRepository {
     }
 
     async getAll() {
-        const todos = [{id: 1, name: 'Liliana', lastname: 'Reyes', status: 1, idUser: 1}];
+        //const todos = [{id: 1, name: 'Liliana', lastname: 'Reyes', status: 1, idUser: 1}];
 
-        return todos;
+        return Creditor.find();
     }
 
     getById(creditorId) {

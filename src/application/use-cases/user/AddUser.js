@@ -17,7 +17,7 @@ module.exports = (UserRepository) => {
         };
 
         try{
-            const result = UserRepository.add(newUser);        
+            const result = await UserRepository.add(newUser);        
             return res.status(201).json(result);
         }catch(error){
             return res.status(422).json({message: "No se pudo registrar al usuario"});

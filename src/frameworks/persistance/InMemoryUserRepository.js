@@ -29,11 +29,11 @@ module.exports = class InMemoryUserRepository extends UserRepository {
         return found;
     }
 
-    add(userInstance) {
+    async add(userInstance) {
         //this.currentId = this.currentId + 1;
         //studentInstance.id = this.currentId;
         //this.students.push(userInstance);
 
-        return userInstance;
+        return await userInstance;
     }
 };

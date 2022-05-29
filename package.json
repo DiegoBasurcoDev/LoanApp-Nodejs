@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/app.js",
-    "test": "jest --detectOpenHandles --forceExit"
+    "test": "jest --forceExit"
   },
   "keywords": [],
   "author": "",

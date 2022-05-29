@@ -1,9 +1,19 @@
 const request = require('supertest');
+const mongoose = require('mongoose');
 const app = require('./app');
+const { deleteOne } = require('../src/entities/user');
 
 jest.setTimeout(10000);
 
 describe('API Creditor', () => {
+    beforeAll(async () => {
+        await mongoose.connect(process.env.MONGODB_URL);
+    });
+
+    afterAll(async () => {
+        await mongoose.disconnect();
+    });
+
     it('GET api/creditor -> Array', async () => {
         return await request(app)
             .get('/api/creditor')

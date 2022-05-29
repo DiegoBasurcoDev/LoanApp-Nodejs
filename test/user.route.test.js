@@ -50,7 +50,7 @@ describe('API User', () => {
             .expect(404);
     });
 
-    it('POST api/user -> create todo', () => {
+    it('POST api/user -> create todo', async () => {
         const body = {
             name: "diego",
             lastname: "basurco",
@@ -59,7 +59,7 @@ describe('API User', () => {
             password: "123456"
         };
 
-        return request(app).post('/api/user')
+        return await request(app).post('/api/user')
             .send(body).expect('Content-Type', /json/).expect(201)
             .then((response) => {
                 expect(response.body).toEqual(
@@ -74,7 +74,7 @@ describe('API User', () => {
             });
     });
 
-    it('POST api/user -> validate body', () => {
+    it('POST api/user -> validate body', async () => {
         const body = {
             name: 123,
             lastname: "basurco",
@@ -83,7 +83,7 @@ describe('API User', () => {
             password: "123456"
         };
 
-        return request(app).post('/api/user')
+        return await request(app).post('/api/user')
         .send(body).expect(422);
     });
 });

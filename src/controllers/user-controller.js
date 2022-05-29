@@ -7,9 +7,9 @@ module.exports = (dependencies) => {
     const { userRepository } = dependencies.DatabaseService;
 
     const userRegisterController = async (req, res, next) => {
-        const registerUser = await RegisterUser(userRepository);
+        const registerUser = RegisterUser(userRepository);
         
-        registerUser.Execute(req.body, res, next);
+        await registerUser.Execute(req.body, res, next);
     };
 
     const userFindByIdController = async (req, res, next) => {
